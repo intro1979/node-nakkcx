@@ -1,0 +1,18 @@
+<mat-toolbar fxLayout="row" color="transparent" class="flex-container mat-elevation-z2">
+  <button mat-button fxFlex>
+    <mat-icon>list_alt</mat-icon>
+    <span> My - Invoice</span>
+  </button>
+  <div *ngIf="user$ | async as user">
+    <mat-menu #appMenu="matMenu">
+      <button mat-menu-item  [routerLink]="['/products']" routerLinkActive="active">Products</button>
+    </mat-menu>
+    <a mat-icon-button [matMenuTriggerFor]="appMenu">
+      <img class="avatar" *ngIf="user.photoURL" [src]="user.photoURL" [alt]="user.displayName" />
+      <mat-icon *ngIf="!user.photoURL">account_circle</mat-icon>
+    </a>
+  </div>
+
+ 
+ 
+</mat-toolbar>
